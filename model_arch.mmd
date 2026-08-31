@@ -1,0 +1,18 @@
+%%{init: {'theme': 'neutral', 'themeVariables': {'background': '#ffffff', 'primaryColor': '#BBDEFB', 'primaryBorderColor': '#1976D2', 'primaryTextColor': '#212121', 'lineColor': '#546E7A', 'mainBkg': '#BBDEFB', 'nodeBorder': '#1976D2'}}}%%
+flowchart LR
+    US["Ultrasound Image"]
+    SwinT["Swin Transformer Block"]
+    ImageFeat["Multi-scaled Image Feature"]
+
+    US --> SwinT --> ImageFeat
+
+    Clinical["Clinical Feature<br>(age, sex, Hashimoto)"]
+
+    Clinical --> emb1["Embedding"]
+    ImageFeat --> emb2["Embedding"]
+
+    emb1 & emb2 --> |"Concatenate"| MalHead["Malignancy Classifer"]
+
+    MalHead --> MutHead1["Mutation Classifer (Mal)"]
+    MalHead --> MutHead2["Mutation Classifer (Benign)"]
+

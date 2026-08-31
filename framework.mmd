@@ -1,0 +1,34 @@
+flowchart TB
+    US["Ultrasound Image"]
+    SwinT["SwinT"]
+    ImageFeat["Multi-scaled Image Feature"]
+
+    US --> SwinT --> ImageFeat
+
+    Clinical["Clinical Feature<br>(age, sex, TI-RADS, 桥本甲状腺炎)"]
+    Margin["Margin Feature<br>（边缘特征）"]
+    Center["Center Feature<br>（中心特征）"]
+    Radiomics["Radiomics"]
+    Center --> Radiomics
+    Margin --> Radiomics
+
+    Radiomics --> emb1["Embedding"]
+    Clinical --> emb2["Embedding"]
+    ImageFeat --> emb3["Embedding"]
+
+    %% 融合层：接收四个输入
+    Fusion["PCAG"]
+
+    emb1 --> Fusion
+    emb2 --> Fusion
+    emb3 --> Fusion
+
+    Fusion --> SharedFeat["Shared Feature"]
+    SharedFeat --> MalHead["Malignancy Head"]
+    MalHead --> M["恶性"]
+    MalHead --> B["良性"]
+
+    M --> MutHead1["Mutation Head1"]
+    B --> MutHead2["Mutation Head2"]
+    SharedFeat --> MutHead1
+    SharedFeat --> MutHead2

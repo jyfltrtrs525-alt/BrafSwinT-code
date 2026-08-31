@@ -1,0 +1,18 @@
+*.pth
+*.pt
+new_logs/
+data/
+__pycache__/
+*.pyc
+*.log
+.DS_Store
+.claude/
+
+# 2026-08-31 按需排除
+# GradCAM 相关文件/文件夹（文件名含 gradcam）
+*gradcam*
+# 结果文件夹
+results_*/
+# 患者数据
+多模态仁济.csv
+多模态仁济.xlsx

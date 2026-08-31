@@ -1,0 +1,15 @@
+python vis_tsne.py \
+    --val_ratio 0.07 \
+    --test_ratio 0.1 \
+    --cal_ratio 0.08 \
+    --checkpoint results_concat_seed42_7e5_weighted_batch16_lambda0.1/best_by_4c_acc.pt \
+    --aug_n_bn 0 \
+    --aug_n_bm 0 \
+    --aug_n_mn 0 \
+    --aug_n_mm 0 \
+    --seed 42 \
+    --method_bn random \
+    --method_bm random \
+    --method_mn random \
+    --method_mm random \
+    --output_png tsne_concat_lr7e-5_seed42_lambda.png \

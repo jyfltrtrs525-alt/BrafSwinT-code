@@ -1,0 +1,35 @@
+python main_concat.py \
+    --seed 46 \
+    --epochs 120 \
+    --lr 3e-5 \
+    --use_crc \
+    --beta 0.22 \
+    --alpha_M 0.25 \
+    --alpha_B 0.25 \
+    --batch_size 16 \
+    --weight_decay 5e-3 \
+    --synth_dir  /data/swint二分类/final_generated5.0 \
+    --synth_n_bn 0 \
+    --synth_n_bm 0 \
+    --synth_n_mn 0 \
+    --synth_n_mm 0 \
+    --lambda_contrast 0.1 \
+    --output_dir results_concat_seed46_3e5_weighted_batch16_lambda0.1
+
+python main_concat.py \
+    --seed 46 \
+    --epochs 120 \
+    --lr 1e-5 \
+    --use_crc \
+    --beta 0.22 \
+    --alpha_M 0.25 \
+    --alpha_B 0.25 \
+    --batch_size 16 \
+    --weight_decay 5e-3 \
+    --synth_dir  /data/swint二分类/final_generated5.0 \
+    --synth_n_bn 0 \
+    --synth_n_bm 0 \
+    --synth_n_mn 0 \
+    --synth_n_mm 0 \
+    --lambda_contrast 0.1 \
+    --output_dir results_concat_seed46_1e5_weighted_batch16_lambda0.1
